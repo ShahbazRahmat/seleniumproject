@@ -22,15 +22,23 @@ public class Hook extends BaseUtil{
     @Before
     public void InitializeTest() {
 
-        System.out.println("Opening the browser : Firefox");
+         /*System.out.println("Opening the browser : Firefox");
 
         System.setProperty("webdriver.firefox.marionette", "C:\\Libs\\geckodriver.exe");
-        base.Driver = new FirefoxDriver();
+        base.Driver = new FirefoxDriver();*/
+		
 
 
         //Chrome driver
        /* System.setProperty("webdriver.chrome.driver", "C:\\Libs\\chromedriver.exe");
         base.Driver = new ChromeDriver();*/
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Libs\\chromedriver.exe");
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("disable-extensions");
+		opt.addArguments("--start-maximized");
+		WebDriver driver = new ChromeDriver(opt);
+        
     }
 
 
